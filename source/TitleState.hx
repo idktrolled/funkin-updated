@@ -237,6 +237,8 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 
+		var versionState:Bool = false;
+
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
 		if (gamepad != null)
@@ -266,6 +268,7 @@ class TitleState extends MusicBeatState
 			FlxG.sound.play('assets/sounds/confirmMenu' + TitleState.soundExt, 0.7);
 
 			transitioning = true;
+			versionState = true;
 			// FlxG.sound.music.stop();
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
@@ -274,7 +277,7 @@ class TitleState extends MusicBeatState
 
 				var version:String = "v" + Application.current.meta.get('version');
 
-				/* if (version.trim() != NGio.GAME_VER_NUMS && !OutdatedSubState.leftState)
+				if (versionState)
 				{
 					trace('OLD VERSION!');
 					FlxG.switchState(new OutdatedSubState());
@@ -282,7 +285,7 @@ class TitleState extends MusicBeatState
 				else
 				{
 					FlxG.switchState(new MainMenuState());
-				} */
+				}
 			});
 			// FlxG.sound.play('assets/music/titleShoot' + TitleState.soundExt, 0.7);
 		}
