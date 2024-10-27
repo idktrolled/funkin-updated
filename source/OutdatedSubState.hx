@@ -20,8 +20,6 @@ class OutdatedSubState extends MusicBeatState
 		var txt:FlxText = new FlxText(0, 0, FlxG.width,
 			"HEY! You're running an outdated version of the game!\nCurrent version is "
 			+ ver
-			+ " while the older version is "
-			+ " 0.2.7.1 "
 			+ "! Press Space to go to itch.io, or ESCAPE to ignore this!!",
 			32);
 		txt.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
