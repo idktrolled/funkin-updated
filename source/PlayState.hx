@@ -115,20 +115,6 @@ class PlayState extends MusicBeatState
 
 	public static var campaignScore:Int = 0;
 
-	public static var defaultCameras(get, set):Array<FlxCamera>;
-
-	static var _defaultCameras:Array<FlxCamera>;
-
-	static inline function get_defaultCameras():Array<FlxCamera>
-	{
-		return _defaultCameras;
-	}
-
-	static inline function set_defaultCameras(value:Array<FlxCamera>):Array<FlxCamera>
-	{
-		return _defaultCameras = value;
-	}
-
 	var defaultCamZoom:Float = 1.05;
 
 	// how big to stretch the pixel art assets
@@ -146,7 +132,7 @@ class PlayState extends MusicBeatState
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
 
-		defaultCameras = [camGame];
+		FlxCamera.defaultCameras = [camGame];
 
 		persistentUpdate = true;
 		persistentDraw = true;
