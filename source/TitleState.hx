@@ -268,16 +268,17 @@ class TitleState extends MusicBeatState
 			FlxG.sound.play('assets/sounds/confirmMenu' + TitleState.soundExt, 0.7);
 
 			transitioning = true;
+
 			versionState = true;
 			// FlxG.sound.music.stop();
 
-			new FlxTimer().start(2, function(tmr:FlxTimer)
+			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
 				// Check if version is outdated
 
 				var version:String = "v" + Application.current.meta.get('version');
 
-				if (versionState)
+				if (!versionState)
 				{
 					trace('OLD VERSION!');
 					FlxG.switchState(new OutdatedSubState());
